@@ -1,107 +1,101 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Section CIEL - Lycée Yves Thépot</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <style>
-    html {
-      scroll-behavior: smooth; /* Défilement doux */
-    }
+<!DOCTYPE html> <!-- Indique que c’est un document HTML5 -->
+<html lang="fr"> <!-- Langue principale définie sur le français -->
 
+<head> <!-- Début de l’en-tête du document -->
+  <meta charset="UTF-8"> <!-- Encodage en UTF-8 pour les caractères spéciaux -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Affichage adaptatif sur mobile -->
+  <title>Section CIEL</title> <!-- Titre de la page affiché dans l’onglet -->
+
+  <style> /* Début des styles CSS */
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
+      font-family: Arial, sans-serif; /* Police lisible */
+      margin: 0; /* Supprime les marges par défaut */
       padding: 0;
-      background-color: #f0f0f0;
+      background-color: #f0f0f0; /* Fond gris clair */
     }
 
     header {
-      background-color: #C40C2B;
-      color: white;
+      background-color: #C40C2B; /* Rouge foncé */
+      color: white; /* Texte blanc */
       padding: 20px;
       text-align: center;
-    }
-
-    nav {
-      background-color: #ffffff;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      position: sticky;
+      position: sticky; /* Fixe l’en-tête en haut lors du scroll */
       top: 0;
       z-index: 1000;
     }
 
-    nav a {
-      text-decoration: none;
-      color: #C40C2B;
-      font-weight: bold;
-      background-color: #f9f9f9;
-      padding: 8px 15px;
-      border-radius: 5px;
-      border: 1px solid #C40C2B;
-      transition: background 0.2s;
+    nav {
+      margin-top: 10px; /* Espace entre le titre et les boutons */
     }
 
-    nav a:hover {
-      background-color: #C40C2B;
+    nav button {
+      margin: 0 5px;
+      padding: 10px 15px;
+      background-color: white; /* Boutons blancs */
+      color: #C40C2B; /* Texte rouge */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    nav button:hover {
+      background-color: #C40C2B; /* Inversion au survol */
       color: white;
     }
 
     main {
-      padding: 20px;
+      padding: 20px; /* Marge intérieure générale */
     }
 
     section {
-      background-color: white;
+      background-color: white; /* Fond blanc pour les blocs */
       padding: 20px;
       margin-bottom: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      scroll-margin-top: 80px; /* 👈 Décale l'ancre de 80px pour éviter que le titre soit sous la navbar */
+      border-radius: 10px; /* Coins arrondis */
+      box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Ombre douce */
+      scroll-margin-top: 120px; /* Décalage pour corriger la position lors du scroll automatique */
     }
 
     h2 {
-      color: #C40C2B;
+      color: #C40C2B; /* Titre en rouge foncé */
     }
 
     footer {
-      background-color: #C40C2B;
-      color: white;
+      background-color: #C40C2B; /* Rouge foncé */
+      color: white; /* Texte blanc */
       text-align: center;
       padding: 10px;
     }
 
     #map {
-      height: 400px;
-      width: 100%;
-      margin-top: 15px;
+      height: 400px; /* Hauteur de la carte */
+      width: 100%; /* Pleine largeur */
       border-radius: 10px;
+      margin-top: 20px;
     }
-  </style>
+  </style> <!-- Fin des styles -->
 </head>
-<body>
 
-  <header>
-    <h1>La section professionnelle CIEL</h1>
-    <p>Cybersécurité informatique et réseaux électroniques</p>
+<body> <!-- Début du contenu affiché à l’écran -->
+
+  <header> <!-- En-tête de la page -->
+    <h1>La section professionnelle CIEL</h1> <!-- Titre principal -->
+    <p>Cybersécurité informatique et réseaux électroniques</p> <!-- Sous-titre -->
+    
+    <nav> <!-- Barre de navigation avec boutons -->
+      <!-- Chaque bouton scroll vers une section -->
+      <button onclick="document.getElementById('ciel').scrollIntoView({behavior: 'smooth'})">Qu'est-ce que CIEL ?</button>
+      <button onclick="document.getElementById('competences').scrollIntoView({behavior: 'smooth'})">Compétences</button>
+      <button onclick="document.getElementById('debouches').scrollIntoView({behavior: 'smooth'})">Débouchés</button>
+      <button onclick="document.getElementById('pourquoi').scrollIntoView({behavior: 'smooth'})">Pourquoi CIEL ?</button>
+      <button onclick="document.getElementById('carte').scrollIntoView({behavior: 'smooth'})">Carte</button>
+    </nav>
   </header>
 
-  <!-- 🔽 Barre de navigation -->
-  <nav>
-    <a href="#presentation">Présentation</a>
-    <a href="#competences">Compétences</a>
-    <a href="#debouches">Débouchés</a>
-    <a href="#raisons">Pourquoi CIEL ?</a>
-    <a href="#carte">Localisation</a>
-  </nav>
+  <main> <!-- Contenu principal -->
 
-  <main>
-    <section id="presentation">
+    <section id="ciel"> <!-- Bloc de présentation -->
       <h2>Qu'est-ce que CIEL ?</h2>
       <p>
         La section CIEL est une formation professionnelle centrée sur l'informatique, 
@@ -109,7 +103,7 @@
       </p>
     </section>
 
-    <section id="competences">
+    <section id="competences"> <!-- Bloc compétences -->
       <h2>Compétences enseignées</h2>
       <ul>
         <li>Programmation web (HTML, CSS, JavaScript)</li>
@@ -118,7 +112,7 @@
       </ul>
     </section>
 
-    <section id="debouches">
+    <section id="debouches"> <!-- Bloc débouchés -->
       <h2>Débouchés professionnels</h2>
       <p>
         À l’issue de la formation, les étudiants peuvent devenir développeur web, 
@@ -126,7 +120,7 @@
       </p>
     </section>
 
-    <section id="raisons">
+    <section id="pourquoi"> <!-- Bloc avantages -->
       <h2>Pourquoi choisir CIEL ?</h2>
       <p>
         CIEL permet d’acquérir des compétences concrètes très demandées sur le marché du travail, 
@@ -134,31 +128,35 @@
       </p>
     </section>
 
-    <section id="carte">
-      <h2>Où nous trouver ?</h2>
-      <p>Voici où se situe le Lycée Yves Thépot à Quimper :</p>
-      <div id="map"></div>
+    <section id="carte"> <!-- Bloc carte -->
+      <h2>Localisation du lycée Yves Thépot</h2>
+      <div id="map"></div> <!-- Carte interactive ici -->
     </section>
+
   </main>
 
-  <footer>
-    <p>&copy; 2025 Section CIEL - Lycée Yves Thépot</p>
+  <footer> <!-- Pied de page -->
+    <p>&copy; 2025 Section CIEL</p>
   </footer>
 
-  <!-- 📍 Script Leaflet pour la carte -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script>
-    var map = L.map('map').setView([47.986845114544934, -4.087778894267064], 18);
+  <!-- Chargement de la librairie Leaflet (pour la carte) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> <!-- Style de la carte -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> <!-- Librairie JS Leaflet -->
 
+  <script>
+    // Initialisation de la carte avec les coordonnées précises du lycée
+    var map = L.map('map').setView([47.986845114544934, -4.087778894267064], 17); // Centre sur le lycée
+
+    // Ajout de la couche OpenStreetMap (fond de carte)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors',
-      maxZoom: 19
+      attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
-    L.marker([47.986845114544934, -4.087778894267064])
-      .addTo(map)
-      .bindPopup("<b>Lycée Yves Thépot</b><br>Section CIEL (point exact)")
+    // Ajout du marqueur sur le lycée
+    L.marker([47.986845114544934, -4.087778894267064]).addTo(map)
+      .bindPopup('Lycée Yves Thépot, Quimper')
       .openPopup();
   </script>
+
 </body>
 </html>
