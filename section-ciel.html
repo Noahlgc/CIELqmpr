@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Section CIEL - Lycée Yves Thépot</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    html {
+      scroll-behavior: smooth; /* Défilement doux */
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    header {
+      background-color: #C40C2B;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #ffffff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #C40C2B;
+      font-weight: bold;
+      background-color: #f9f9f9;
+      padding: 8px 15px;
+      border-radius: 5px;
+      border: 1px solid #C40C2B;
+      transition: background 0.2s;
+    }
+
+    nav a:hover {
+      background-color: #C40C2B;
+      color: white;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      scroll-margin-top: 80px; /* 👈 Décale l'ancre de 80px pour éviter que le titre soit sous la navbar */
+    }
+
+    h2 {
+      color: #C40C2B;
+    }
+
+    footer {
+      background-color: #C40C2B;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    #map {
+      height: 400px;
+      width: 100%;
+      margin-top: 15px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>La section professionnelle CIEL</h1>
+    <p>Cybersécurité informatique et réseaux électroniques</p>
+  </header>
+
+  <!-- 🔽 Barre de navigation -->
+  <nav>
+    <a href="#presentation">Présentation</a>
+    <a href="#competences">Compétences</a>
+    <a href="#debouches">Débouchés</a>
+    <a href="#raisons">Pourquoi CIEL ?</a>
+    <a href="#carte">Localisation</a>
+  </nav>
+
+  <main>
+    <section id="presentation">
+      <h2>Qu'est-ce que CIEL ?</h2>
+      <p>
+        La section CIEL est une formation professionnelle centrée sur l'informatique, 
+        particulièrement dans la programmation.
+      </p>
+    </section>
+
+    <section id="competences">
+      <h2>Compétences enseignées</h2>
+      <ul>
+        <li>Programmation web (HTML, CSS, JavaScript)</li>
+        <li>Développement d'applications</li>
+        <li>Cybersécurité et réseaux</li>
+      </ul>
+    </section>
+
+    <section id="debouches">
+      <h2>Débouchés professionnels</h2>
+      <p>
+        À l’issue de la formation, les étudiants peuvent devenir développeur web, 
+        technicien systèmes et réseaux, administrateur de base de données, etc.
+      </p>
+    </section>
+
+    <section id="raisons">
+      <h2>Pourquoi choisir CIEL ?</h2>
+      <p>
+        CIEL permet d’acquérir des compétences concrètes très demandées sur le marché du travail, 
+        avec un bon équilibre entre la théorie et la pratique.
+      </p>
+    </section>
+
+    <section id="carte">
+      <h2>Où nous trouver ?</h2>
+      <p>Voici où se situe le Lycée Yves Thépot à Quimper :</p>
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Section CIEL - Lycée Yves Thépot</p>
+  </footer>
+
+  <!-- 📍 Script Leaflet pour la carte -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([47.986845114544934, -4.087778894267064], 18);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors',
+      maxZoom: 19
+    }).addTo(map);
+
+    L.marker([47.986845114544934, -4.087778894267064])
+      .addTo(map)
+      .bindPopup("<b>Lycée Yves Thépot</b><br>Section CIEL (point exact)")
+      .openPopup();
+  </script>
+</body>
+</html>
