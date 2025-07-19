@@ -1,26 +1,26 @@
 <!DOCTYPE html> <!-- Déclare un document HTML5 -->
-<html lang="fr"> <!-- Définit la langue du document -->
+<html lang="fr"> <!-- Définit la langue du document en français -->
 
 <head>
-  <meta charset="UTF-8"> <!-- Support des caractères spéciaux -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adapté aux mobiles -->
-  <title>Section CIEL</title> <!-- Titre dans l’onglet -->
+  <meta charset="UTF-8"> <!-- Encodage UTF-8 pour caractères spéciaux -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive pour mobile -->
+  <title>Section CIEL</title> <!-- Titre affiché dans l’onglet -->
 
-  <!-- 💅 CSS intégré -->
+  <!-- 🎨 Styles CSS -->
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: Arial, sans-serif; /* Police lisible */
       margin: 0;
       padding: 0;
-      background-color: #f0f0f0;
+      background-color: #f0f0f0; /* Couleur de fond claire */
     }
 
     header {
-      background-color: #C40C2B;
+      background-color: #C40C2B; /* Rouge foncé */
       color: white;
       padding: 20px;
       text-align: center;
-      position: sticky; /* Barre toujours visible */
+      position: sticky; /* Barre fixe en haut */
       top: 0;
       z-index: 1000;
     }
@@ -51,11 +51,10 @@
 
     section {
       background-color: white;
-      padding: 60px 20px 20px 20px; /* ⬅️ padding top augmenté pour corriger le scroll */
+      padding: 20px;
       margin-bottom: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      position: relative;
     }
 
     h2 {
@@ -81,27 +80,25 @@
 
 <body>
 
-  <!-- 🧱 Barre du haut avec navigation -->
+  <!-- 🔝 Barre du haut avec les boutons -->
   <header>
     <h1>La section professionnelle CIEL</h1>
     <p>Cybersécurité informatique et réseaux électroniques</p>
     <nav>
-      <button onclick="document.getElementById('ciel').scrollIntoView({ behavior: 'smooth' })">Qu'est-ce que CIEL ?</button>
-      <button onclick="document.getElementById('competences').scrollIntoView({ behavior: 'smooth' })">Compétences</button>
-      <button onclick="document.getElementById('debouches').scrollIntoView({ behavior: 'smooth' })">Débouchés</button>
-      <button onclick="document.getElementById('pourquoi').scrollIntoView({ behavior: 'smooth' })">Pourquoi CIEL ?</button>
-      <button onclick="document.getElementById('carte').scrollIntoView({ behavior: 'smooth' })">Carte</button>
+      <!-- 🔘 Boutons qui scrollent -->
+      <button onclick="scrollToSection('ciel')">Qu'est-ce que CIEL ?</button>
+      <button onclick="scrollToSection('competences')">Compétences</button>
+      <button onclick="scrollToSection('debouches')">Débouchés</button>
+      <button onclick="scrollToSection('pourquoi')">Pourquoi CIEL ?</button>
+      <button onclick="scrollToSection('carte')">Carte</button>
     </nav>
   </header>
 
-  <!-- 🧾 Sections avec padding-top intégré -->
+  <!-- 📄 Sections de contenu -->
   <main>
     <section id="ciel">
       <h2>Qu'est-ce que CIEL ?</h2>
-      <p>
-        La section CIEL est une formation professionnelle centrée sur l'informatique,
-        particulièrement dans la programmation.
-      </p>
+      <p>La section CIEL est une formation professionnelle centrée sur l'informatique, particulièrement dans la programmation.</p>
     </section>
 
     <section id="competences">
@@ -115,18 +112,12 @@
 
     <section id="debouches">
       <h2>Débouchés professionnels</h2>
-      <p>
-        À l’issue de la formation, les étudiants peuvent devenir développeur web,
-        technicien systèmes et réseaux, administrateur de base de données, etc.
-      </p>
+      <p>À l’issue de la formation, les étudiants peuvent devenir développeur web, technicien systèmes et réseaux, administrateur de base de données, etc.</p>
     </section>
 
     <section id="pourquoi">
       <h2>Pourquoi choisir CIEL ?</h2>
-      <p>
-        CIEL permet d’acquérir des compétences concrètes très demandées sur le marché du travail,
-        avec un bon équilibre entre la théorie et la pratique.
-      </p>
+      <p>CIEL permet d’acquérir des compétences concrètes très demandées sur le marché du travail, avec un bon équilibre entre la théorie et la pratique.</p>
     </section>
 
     <section id="carte">
@@ -135,17 +126,17 @@
     </section>
   </main>
 
-  <!-- ⬇️ Pied de page -->
+  <!-- 🔚 Pied de page -->
   <footer>
-    <p>&copy; 2025 Section CIEL Made By Noah Le Gouallec Le Guen</p>
+    <p>&copy; 2025 Section CIEL Made by Noah Le Gouallec Le Guen</p>
   </footer>
 
-  <!-- 🌍 Librairies Leaflet -->
+  <!-- 📍 Carte Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <script>
-    // Initialise la carte Leaflet avec zoom bien adapté
+    // 🧭 Initialisation de la carte avec bon zoom
     var map = L.map('map').setView([47.986845114544934, -4.087778894267064], 17);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -156,6 +147,17 @@
       .addTo(map)
       .bindPopup("Lycée Yves Thépot, Quimper")
       .openPopup();
+  </script>
+
+  <script>
+    // 📜 Fonction JS pour scroller proprement en gardant la barre visible
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      const yOffset = -100; // Décalage vers le haut pour voir le titre
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
   </script>
 
 </body>
