@@ -1,140 +1,121 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!DOCTYPE html> <!-- Déclare le type de document HTML -->
+<html lang="fr"> <!-- Définit la langue principale de la page -->
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Section CIEL - Lycée Yves Thépot</title>
+  <meta charset="UTF-8"> <!-- Spécifie l'encodage de caractères (UTF-8 = caractères français OK) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive mobile -->
+  <title>Section CIEL - Lycée Yves Thépot</title> <!-- Titre de l’onglet -->
 
+  <!-- Style CSS intégré -->
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-      scroll-padding-top: 100px; /* On réduit pour éviter que ça descende trop */
-      background-color: #f8f9fa;
+      font-family: Arial, sans-serif; /* Police générale */
+      margin: 0; /* Supprime les marges du navigateur */
+      padding: 0; /* Supprime le padding par défaut */
+      scroll-behavior: smooth; /* Permet le scroll fluide quand on clique sur les liens */
+      scroll-padding-top: 120px; /* Laisse un espace en haut pour ne pas que le header cache le contenu */
+      background-color: #f5f5f5; /* Couleur de fond claire */
     }
 
     header {
-      background-color: #c8102e;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      background-color: #c8102e; /* Rouge principal */
+      color: white; /* Texte blanc */
+      text-align: center; /* Centrer le texte */
+      padding: 20px; /* Espace intérieur */
+      position: sticky; /* Fixe le header en haut même quand on scroll */
+      top: 0; /* Collé en haut */
+      z-index: 999; /* Au-dessus des autres éléments */
     }
 
     nav {
-      margin-top: 15px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: flex; /* Affiche les boutons en ligne */
+      flex-wrap: wrap; /* Passe à la ligne sur petits écrans */
+      justify-content: center; /* Centre les boutons */
+      margin-top: 15px; /* Espacement avec le texte du header */
     }
 
     nav a {
-      background-color: white;
-      color: #c8102e;
-      border: none;
-      padding: 10px 15px;
-      margin: 5px;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-      font-weight: bold;
+      background-color: white; /* Couleur de fond des boutons */
+      color: #c8102e; /* Couleur du texte rouge */
+      padding: 10px 15px; /* Taille des boutons */
+      margin: 5px; /* Espace entre les boutons */
+      border-radius: 5px; /* Coins arrondis */
+      text-decoration: none; /* Pas de soulignement */
+      font-weight: bold; /* Texte en gras */
+      transition: background-color 0.2s; /* Animation légère au hover */
     }
 
     nav a:hover {
-      background-color: #e6e6e6;
+      background-color: #eee; /* Couleur au survol */
     }
 
     section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-      background-color: white;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      background-color: white; /* Fond blanc des sections */
+      margin: 30px auto; /* Espace entre les sections + centré */
+      padding: 30px; /* Espace intérieur */
+      max-width: 900px; /* Largeur max */
+      border-radius: 10px; /* Coins arrondis */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
     }
 
     h2 {
-      color: #c8102e;
+      color: #c8102e; /* Titres en rouge */
     }
 
     footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #c8102e;
-      color: white;
-    }
-
-    iframe {
-      width: 100%;
-      height: 400px;
-      border: none;
-      border-radius: 10px;
+      background-color: #c8102e; /* Fond rouge */
+      color: white; /* Texte blanc */
+      text-align: center; /* Centré */
+      padding: 20px; /* Espace intérieur */
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Barre rouge avec navigation -->
+  <!-- EN-TÊTE de la page -->
   <header>
-    <h1>La section professionnelle CIEL</h1>
-    <p>Cybersécurité informatique et réseaux électroniques</p>
+    <h1>La section professionnelle CIEL</h1> <!-- Titre principal -->
+    <p>Cybersécurité informatique et réseaux électroniques</p> <!-- Sous-titre -->
 
-    <!-- On change l'ordre + on retire 1 bouton comme tu as demandé -->
+    <!-- Menu de navigation -->
     <nav>
-      <a href="#competences">Compétences</a>
-      <a href="#debouches">Débouchés</a>
-      <a href="#pourquoi">Pourquoi CIEL ?</a>
-      <a href="#carte">Carte</a>
+      <a href="#competences">Compétences</a> <!-- 1er bouton : compétences techniques -->
+      <a href="#intro">Qu’est-ce que CIEL ?</a> <!-- 2e bouton : description générale -->
+      <a href="#debouches">Débouchés</a> <!-- 3e bouton -->
+      <a href="#pourquoi">Pourquoi CIEL ?</a> <!-- 4e bouton -->
+      <!-- Plus de bouton "Carte", il est supprimé -->
     </nav>
   </header>
 
-  <!-- Qu’est-ce que CIEL -->
-  <section id="intro">
-    <h2>Qu’est-ce que CIEL ?</h2>
-    <p>CIEL signifie "Cybersécurité Informatique et réseaux Électroniques". C’est une formation professionnelle qui prépare aux métiers de l’informatique et des réseaux.</p>
-    <ul>
-      <li>Programmation web (HTML, CSS, JavaScript)</li>
-      <li>Développement d’applications</li>
-      <li>Cybersécurité et réseaux</li>
-    </ul>
-  </section>
-
-  <!-- Compétences -->
+  <!-- Section COMPÉTENCES (ancien contenu du bouton 1) -->
   <section id="competences">
     <h2>Compétences</h2>
     <p>Les étudiants acquièrent des compétences techniques solides : programmation, configuration de réseaux, sécurité informatique, gestion de bases de données, etc.</p>
   </section>
 
-  <!-- Débouchés -->
+  <!-- Section INTRO (déplacée en 2e bouton) -->
+  <section id="intro">
+    <h2>Qu’est-ce que CIEL ?</h2>
+    <p>CIEL est une formation tournée vers l’avenir dans les métiers de l’informatique, des réseaux et de la cybersécurité.</p>
+  </section>
+
+  <!-- Section DÉBOUCHÉS -->
   <section id="debouches">
     <h2>Débouchés professionnels</h2>
     <p>À l’issue de la formation, les étudiants peuvent devenir développeur web, technicien systèmes et réseaux, administrateur de base de données, etc.</p>
   </section>
 
-  <!-- Pourquoi choisir -->
+  <!-- Section POURQUOI -->
   <section id="pourquoi">
     <h2>Pourquoi choisir CIEL ?</h2>
     <p>CIEL permet d’acquérir des compétences concrètes très demandées sur le marché du travail, avec un bon équilibre entre la théorie et la pratique.</p>
   </section>
 
-  <!-- Carte -->
-  <section id="carte">
-    <h2>Localisation du lycée Yves Thépot</h2>
-    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-4.0895%2C47.9865%2C-4.0855%2C47.9885&amp;layer=mapnik&amp;marker=47.9875%2C-4.0876" allowfullscreen="" loading="lazy"></iframe>
-  </section>
-
-  <!-- Pied de page -->
+  <!-- Footer -->
   <footer>
-    &copy;Section CIEL - Made by Noah Le Gouallec Le Guen
+    &copy; 2025 Made by Noah Le Gouallec Le Guen - Section CIEL
   </footer>
 
 </body>
-
 </html>
