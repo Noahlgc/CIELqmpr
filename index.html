@@ -1,30 +1,33 @@
-<!DOCTYPE html> <!-- Déclare un document HTML5 -->
-<html lang="fr"> <!-- Définit la langue du document en français -->
+<!DOCTYPE html> <!-- Déclare le type de document HTML5 -->
+<html lang="fr"> <!-- Langue du document définie sur le français -->
 
 <head>
-  <meta charset="UTF-8"> <!-- Encodage UTF-8 pour caractères spéciaux -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive pour mobile -->
-  <title>Section CIEL</title> <!-- Titre affiché dans l’onglet -->
+  <meta charset="UTF-8"> <!-- Encodage des caractères en UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Rendre le site responsive -->
+  <title>Section CIEL</title> <!-- Titre affiché dans l'onglet -->
 
-  <!-- 🎨 Styles CSS -->
+  <!-- Feuille de style intégrée -->
   <style>
+    /* Style global */
     body {
-      font-family: Arial, sans-serif; /* Police lisible */
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f0f0f0; /* Couleur de fond claire */
+      background-color: #f0f0f0;
     }
 
+    /* Barre d’en-tête */
     header {
-      background-color: #C40C2B; /* Rouge foncé */
+      background-color: #C40C2B;
       color: white;
       padding: 20px;
       text-align: center;
-      position: sticky; /* Barre fixe en haut */
+      position: sticky; /* La barre reste en haut de l'écran */
       top: 0;
       z-index: 1000;
     }
 
+    /* Menu de navigation */
     nav {
       margin-top: 10px;
     }
@@ -45,11 +48,14 @@
       color: white;
     }
 
+    /* Contenu principal */
     main {
       padding: 20px;
     }
 
+    /* Sections avec espace en haut pour le scroll */
     section {
+      scroll-margin-top: 120px; /* Réserve de l’espace en haut quand on clique */
       background-color: white;
       padding: 20px;
       margin-bottom: 20px;
@@ -69,6 +75,7 @@
       padding: 10px;
     }
 
+    /* Carte */
     #map {
       height: 400px;
       width: 100%;
@@ -80,21 +87,21 @@
 
 <body>
 
-  <!-- 🔝 Barre du haut avec les boutons -->
+  <!-- En-tête -->
   <header>
     <h1>La section professionnelle CIEL</h1>
     <p>Cybersécurité informatique et réseaux électroniques</p>
     <nav>
-      <!-- 🔘 Boutons qui scrollent -->
-      <button onclick="scrollToSection('ciel')">Qu'est-ce que CIEL ?</button>
-      <button onclick="scrollToSection('competences')">Compétences</button>
-      <button onclick="scrollToSection('debouches')">Débouchés</button>
-      <button onclick="scrollToSection('pourquoi')">Pourquoi CIEL ?</button>
-      <button onclick="scrollToSection('carte')">Carte</button>
+      <!-- Boutons de navigation -->
+      <a href="#ciel"><button>Qu'est-ce que CIEL ?</button></a>
+      <a href="#competences"><button>Compétences</button></a>
+      <a href="#debouches"><button>Débouchés</button></a>
+      <a href="#pourquoi"><button>Pourquoi CIEL ?</button></a>
+      <a href="#carte"><button>Carte</button></a>
     </nav>
   </header>
 
-  <!-- 📄 Sections de contenu -->
+  <!-- Contenu principal -->
   <main>
     <section id="ciel">
       <h2>Qu'est-ce que CIEL ?</h2>
@@ -126,38 +133,28 @@
     </section>
   </main>
 
-  <!-- 🔚 Pied de page -->
+  <!-- Pied de page -->
   <footer>
     <p>&copy; 2025 Section CIEL Made by Noah Le Gouallec Le Guen</p>
   </footer>
 
-  <!-- 📍 Carte Leaflet -->
+  <!-- Carte Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <script>
-    // 🧭 Initialisation de la carte avec bon zoom
+    // Initialiser la carte Leaflet avec bon zoom et coordonnées
     var map = L.map('map').setView([47.986845114544934, -4.087778894267064], 17);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19
     }).addTo(map);
 
+    // Ajouter un marqueur à l'emplacement du lycée
     L.marker([47.986845114544934, -4.087778894267064])
       .addTo(map)
       .bindPopup("Lycée Yves Thépot, Quimper")
       .openPopup();
-  </script>
-
-  <script>
-    // 📜 Fonction JS pour scroller proprement en gardant la barre visible
-    function scrollToSection(id) {
-      const element = document.getElementById(id);
-      const yOffset = -100; // Décalage vers le haut pour voir le titre
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
   </script>
 
 </body>
