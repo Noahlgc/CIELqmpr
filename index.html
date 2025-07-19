@@ -1,73 +1,83 @@
-<!DOCTYPE html> <!-- Indique qu'on utilise du HTML5 -->
-<html lang="fr"> <!-- Langue de la page -->
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-  <meta charset="UTF-8"> <!-- Encodage des caractères en UTF-8 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive pour mobiles -->
-  <title>Section CIEL - Lycée Yves Thépot</title> <!-- Titre de l'onglet -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Section CIEL - Lycée Yves Thépot</title>
   <style>
+    /* Style général */
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4; /* Couleur de fond */
+      margin: 0;
+      background-color: #f5f5f5;
+      scroll-behavior: smooth;
     }
+
+    /* En-tête rouge */
     header {
-      background-color: #c8102e; /* Fond rouge */
+      background-color: #c8102e;
       color: white;
       text-align: center;
-      padding: 40px 20px 20px; /* Espace intérieur haut */
+      padding: 30px 20px 10px;
     }
+
+    /* Navigation */
     nav {
       background-color: #c8102e;
-      display: flex;
-      justify-content: center; /* Centre les boutons */
-      flex-wrap: wrap; /* Permet retour à la ligne si écran petit */
+      text-align: center;
       padding-bottom: 20px;
     }
-    nav button {
-      margin: 5px;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
+
+    /* Boutons */
+    .nav-button {
       background-color: white;
-      color: #c8102e;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      margin: 5px;
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.3s;
     }
-    nav button:hover {
-      background-color: #f4f4f4;
+
+    .nav-button:hover {
+      background-color: #e0e0e0;
     }
+
+    /* Sections de contenu */
     section {
-      max-width: 800px;
-      margin: 20px auto;
       background-color: white;
+      margin: 20px auto;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 800px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+
     h2 {
       color: #c8102e;
-    }
-    iframe {
-      width: 100%;
-      height: 400px;
-      border: none;
-      border-radius: 10px;
     }
   </style>
 </head>
 <body>
+
+  <!-- Titre principal -->
   <header>
-    <h1>La section professionnelle CIEL</h1> <!-- Titre principal -->
-    <p>Cybersécurité informatique et réseaux électroniques</p> <!-- Slogan -->
+    <h1>La section professionnelle CIEL</h1>
+    <p>Cybersécurité informatique et réseaux électroniques</p>
   </header>
 
+  <!-- Boutons de navigation -->
   <nav>
-    <!-- On décale les fonctions d’un cran vers la gauche -->
-    <button onclick="scrollToSection('ciel')">Qu'est-ce que CIEL ?</button>
-    <button onclick="scrollToSection('competences')">Débouchés</button>
-    <button onclick="scrollToSection('debouches')">Pourquoi CIEL ?</button>
-    <button onclick="scrollToSection('pourquoi')">Carte</button>
+    <!-- Parfait tel quel -->
+    <button class="nav-button" onclick="scrollToSection('ciel')">Qu’est-ce que CIEL ?</button>
+    <!-- Le 2e devient Compétences -->
+    <button class="nav-button" onclick="scrollToSection('competences')">Compétences</button>
+    <!-- Le 3e devient Débouchés -->
+    <button class="nav-button" onclick="scrollToSection('debouches')">Débouchés</button>
+    <!-- Le 4e devient Pourquoi CIEL ? -->
+    <button class="nav-button" onclick="scrollToSection('pourquoi')">Pourquoi CIEL ?</button>
+    <!-- SUPPRIMÉ : Bouton Carte -->
   </nav>
 
   <!-- Section Qu’est-ce que CIEL ? -->
@@ -76,42 +86,47 @@
     <p>CIEL est une formation tournée vers l’avenir dans les métiers de l’informatique, des réseaux et de la cybersécurité.</p>
   </section>
 
-  <!-- Section Compétences (fonction débouchés mais contenu compétence) -->
+  <!-- Section Compétences -->
   <section id="competences">
     <h2>Compétences</h2>
     <p>Les étudiants acquièrent des compétences techniques solides : programmation, configuration de réseaux, sécurité informatique, gestion de bases de données, etc.</p>
   </section>
 
-  <!-- Section Débouchés (fonction pourquoi mais contenu débouchés) -->
+  <!-- Section Débouchés -->
   <section id="debouches">
     <h2>Débouchés professionnels</h2>
     <p>À l’issue de la formation, les étudiants peuvent devenir développeur web, technicien systèmes et réseaux, administrateur de base de données, etc.</p>
   </section>
 
-  <!-- Section Pourquoi CIEL (fonction carte mais contenu pourquoi) -->
+  <!-- Section Pourquoi CIEL -->
   <section id="pourquoi">
     <h2>Pourquoi choisir CIEL ?</h2>
     <p>CIEL permet d’acquérir des compétences concrètes très demandées sur le marché du travail, avec un bon équilibre entre la théorie et la pratique.</p>
   </section>
 
-  <!-- Section Carte (cliquée par le dernier bouton) -->
+  <!-- Section Carte -->
   <section id="carte">
     <h2>Où se trouve le lycée ?</h2>
     <p>Voici la localisation du lycée Yves Thépot à Quimper :</p>
-    <iframe 
-      src="https://www.openstreetmap.org/export/embed.html?bbox=-4.1046%2C47.9802%2C-4.0962%2C47.9846&amp;layer=mapnik&amp;marker=47.9824%2C-4.1004"
-      allowfullscreen>
+    <iframe
+      src="https://www.openstreetmap.org/export/embed.html?bbox=-4.111110%2C47.996%2C-4.085%2C48.005&amp;layer=mapnik&amp;marker=47.999%2C-4.1"
+      style="border: 1px solid black; width: 100%; height: 450px;"
+      allowfullscreen
+      loading="lazy">
     </iframe>
   </section>
 
-  <!-- Script JS pour défilement fluide jusqu'à l'id voulu -->
+  <!-- Script pour scroll fluide -->
   <script>
     function scrollToSection(id) {
       const element = document.getElementById(id);
-      const headerOffset = 120; // Espace à laisser en haut
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+      if (element) {
+        const offsetTop = element.offsetTop - 40; // évite de cacher le haut sous le header
+        window.scrollTo({
+          top: offsetTop,
+          behavior: "smooth"
+        });
+      }
     }
   </script>
 </body>
