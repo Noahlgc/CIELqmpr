@@ -1,161 +1,134 @@
-<!DOCTYPE html> <!-- Déclare le type de document HTML5 -->
-<html lang="fr"> <!-- Langue du document définie sur le français -->
-
+<!DOCTYPE html> <!-- Déclare que c'est un document HTML5 -->
+<html lang="fr"> <!-- Langue principale du site : français -->
 <head>
-  <meta charset="UTF-8"> <!-- Encodage des caractères en UTF-8 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Rendre le site responsive -->
-  <title>Section CIEL</title> <!-- Titre affiché dans l'onglet -->
-
-  <!-- Feuille de style intégrée -->
+  <meta charset="UTF-8"> <!-- Encodage des caractères -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive sur mobile -->
+  <title>Section CIEL - Lycée Yves Thépot</title> <!-- Titre de l'onglet du navigateur -->
   <style>
-    /* Style global */
+    /* Style global de la page */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f0f0f0;
+      background-color: #f5f5f5;
     }
 
-    /* Barre d’en-tête */
     header {
-      background-color: #C40C2B;
+      background-color: #c80024; /* Rouge CIEL */
       color: white;
-      padding: 20px;
+      padding: 40px 20px 20px;
       text-align: center;
-      position: sticky; /* La barre reste en haut de l'écran */
+      position: sticky; /* Reste collé en haut */
       top: 0;
       z-index: 1000;
     }
 
-    /* Menu de navigation */
     nav {
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
     nav button {
-      margin: 5px;
-      padding: 10px 15px;
       background-color: white;
-      color: #C40C2B;
+      color: #c80024;
       border: none;
-      border-radius: 5px;
+      padding: 10px 15px;
+      margin: 5px;
       cursor: pointer;
       font-weight: bold;
+      border-radius: 5px;
     }
 
     nav button:hover {
-      background-color: #C40C2B;
-      color: white;
+      background-color: #ffe5ea; /* Léger rose clair */
     }
 
-    /* Contenu principal */
-    main {
-      padding: 20px;
-    }
-
-    /* Sections avec espace en haut pour le scroll */
     section {
-      scroll-margin-top: 120px; /* Réserve de l’espace en haut quand on clique */
       background-color: white;
+      margin: 20px;
       padding: 20px;
-      margin-bottom: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      scroll-margin-top: 140px; /* Compense la hauteur du header */
     }
 
     h2 {
-      color: #C40C2B;
-      margin-top: 0;
+      color: #c80024; /* Titre des sections */
+    }
+
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 10px;
     }
 
     footer {
-      background-color: #C40C2B;
-      color: white;
-      text-align: center;
-      padding: 10px;
-    }
-
-    /* Carte */
-    #map {
-      height: 400px;
-      width: 100%;
-      border-radius: 10px;
-      margin-top: 20px;
+      background-color: #c80024; /* Fond rouge */
+      color: white; /* Texte blanc */
+      text-align: center; /* Centré */
+      padding: 15px; /* Espacement */
+      margin-top: 40px;
     }
   </style>
 </head>
-
 <body>
 
-  <!-- En-tête -->
+  <!-- EN-TÊTE DU SITE -->
   <header>
-    <h1>La section professionnelle CIEL</h1>
-    <p>Cybersécurité informatique et réseaux électroniques</p>
+    <h1>La section professionnelle CIEL</h1> <!-- Grand titre principal -->
+    <p>Cybersécurité informatique et réseaux électroniques</p> <!-- Sous-titre -->
     <nav>
-      <!-- Boutons de navigation -->
-      <a href="#ciel"><button>Qu'est-ce que CIEL ?</button></a>
-      <a href="#competences"><button>Compétences</button></a>
-      <a href="#debouches"><button>Débouchés</button></a>
-      <a href="#pourquoi"><button>Pourquoi CIEL ?</button></a>
-      <a href="#carte"><button>Carte</button></a>
+      <!-- Boutons de navigation qui scrollent vers les sections -->
+      <button onclick="document.getElementById('intro').scrollIntoView({behavior: 'smooth'})">Qu'est-ce que CIEL ?</button>
+      <button onclick="document.getElementById('competences').scrollIntoView({behavior: 'smooth'})">Compétences</button>
+      <button onclick="document.getElementById('debouches').scrollIntoView({behavior: 'smooth'})">Débouchés</button>
+      <button onclick="document.getElementById('pourquoi').scrollIntoView({behavior: 'smooth'})">Pourquoi CIEL ?</button>
+      <button onclick="document.getElementById('map').scrollIntoView({behavior: 'smooth'})">Carte</button>
     </nav>
   </header>
 
-  <!-- Contenu principal -->
-  <main>
-    <section id="ciel">
-      <h2>Qu'est-ce que CIEL ?</h2>
-      <p>La section CIEL est une formation professionnelle centrée sur l'informatique, particulièrement dans la programmation.</p>
-    </section>
+  <!-- SECTION INTRO -->
+  <section id="intro">
+    <h2>Qu'est-ce que la section CIEL ?</h2>
+    <p>CIEL signifie "Cybersécurité, Informatique et réseaux Électroniques". Elle forme les élèves aux métiers du numérique.</p>
+  </section>
 
-    <section id="competences">
-      <h2>Compétences enseignées</h2>
-      <ul>
-        <li>Programmation web (HTML, CSS, JavaScript)</li>
-        <li>Développement d'applications</li>
-        <li>Cybersécurité et réseaux</li>
-      </ul>
-    </section>
+  <!-- SECTION COMPÉTENCES -->
+  <section id="competences">
+    <h2>Compétences développées</h2>
+    <ul>
+      <li>Programmation web (HTML, CSS, JavaScript)</li>
+      <li>Développement d'applications</li>
+      <li>Cybersécurité et réseaux</li>
+    </ul>
+  </section>
 
-    <section id="debouches">
-      <h2>Débouchés professionnels</h2>
-      <p>À l’issue de la formation, les étudiants peuvent devenir développeur web, technicien systèmes et réseaux, administrateur de base de données, etc.</p>
-    </section>
+  <!-- SECTION DÉBOUCHÉS -->
+  <section id="debouches">
+    <h2>Débouchés professionnels</h2>
+    <p>À l'issue de la formation, les étudiants peuvent devenir développeur web, technicien systèmes et réseaux, administrateur de base de données, etc.</p>
+  </section>
 
-    <section id="pourquoi">
-      <h2>Pourquoi choisir CIEL ?</h2>
-      <p>CIEL permet d’acquérir des compétences concrètes très demandées sur le marché du travail, avec un bon équilibre entre la théorie et la pratique.</p>
-    </section>
+  <!-- SECTION POURQUOI CIEL -->
+  <section id="pourquoi">
+    <h2>Pourquoi choisir CIEL ?</h2>
+    <p>CIEL permet d’acquérir des compétences concrètes très demandées sur le marché du travail, avec un bon équilibre entre la théorie et la pratique.</p>
+  </section>
 
-    <section id="carte">
-      <h2>Localisation du lycée Yves Thépot</h2>
-      <div id="map"></div>
-    </section>
-  </main>
+  <!-- SECTION MAP -->
+  <section id="map">
+    <h2>Localisation du lycée Yves Thépot</h2>
+    <!-- Carte OpenStreetMap avec le lycée en pointé -->
+    <iframe
+      src="https://www.openstreetmap.org/export/embed.html?bbox=-4.0897789%2C47.9858451%2C-4.0857789%2C47.9878451&amp;layer=mapnik&amp;marker=47.9868451%2C-4.0877789"
+      loading="lazy"
+      allowfullscreen>
+    </iframe>
+  </section>
 
-  <!-- Pied de page -->
+  <!-- PIED DE PAGE -->
   <footer>
-    <p>&copy; 2025 Section CIEL Made by Noah Le Gouallec Le Guen</p>
+    <p>© 2025 Section CIEL Made by Noah Le Gouallec Le Guen</p> <!-- Texte de copyright -->
   </footer>
-
-  <!-- Carte Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-  <script>
-    // Initialiser la carte Leaflet avec bon zoom et coordonnées
-    var map = L.map('map').setView([47.986845114544934, -4.087778894267064], 17);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19
-    }).addTo(map);
-
-    // Ajouter un marqueur à l'emplacement du lycée
-    L.marker([47.986845114544934, -4.087778894267064])
-      .addTo(map)
-      .bindPopup("Lycée Yves Thépot, Quimper")
-      .openPopup();
-  </script>
 
 </body>
 </html>
