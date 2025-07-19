@@ -1,35 +1,36 @@
-<!DOCTYPE html> <!-- Indique qu'on utilise le HTML5 -->
-<html lang="fr"> <!-- Langue principale du document -->
+<!DOCTYPE html> <!-- Déclare un document HTML5 -->
+<html lang="fr"> <!-- Définit la langue principale -->
 
 <head>
-  <meta charset="UTF-8"> <!-- Encodage des caractères (accents, etc.) -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive mobile -->
-  <title>Section CIEL</title> <!-- Titre dans l'onglet -->
+  <meta charset="UTF-8"> <!-- Support des accents et caractères spéciaux -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive sur mobile -->
+  <title>Section CIEL</title> <!-- Titre de l'onglet -->
 
+  <!-- 🌈 Style CSS principal -->
   <style>
     body {
-      font-family: Arial, sans-serif; /* Police simple et lisible */
-      margin: 0; /* Supprime les marges par défaut */
-      padding: 0; /* Supprime les espacements internes */
+      font-family: Arial, sans-serif; /* Police simple */
+      margin: 0;
+      padding: 0;
       background-color: #f0f0f0; /* Fond gris clair */
     }
 
     header {
-      background-color: #C40C2B; /* Couleur rouge foncé */
-      color: white; /* Texte blanc */
+      background-color: #C40C2B; /* Rouge foncé */
+      color: white;
       padding: 20px;
       text-align: center;
-      position: sticky; /* Fixé en haut */
+      position: sticky; /* Barre toujours visible */
       top: 0;
-      z-index: 1000; /* Toujours visible au-dessus */
+      z-index: 1000;
     }
 
     nav {
-      margin-top: 10px; /* Espace au-dessus des boutons */
+      margin-top: 10px;
     }
 
     nav button {
-      margin: 0 5px; /* Espace entre les boutons */
+      margin: 0 5px;
       padding: 10px 15px;
       background-color: white;
       color: #C40C2B;
@@ -40,7 +41,7 @@
     }
 
     nav button:hover {
-      background-color: #C40C2B; /* Inversion des couleurs au survol */
+      background-color: #C40C2B;
       color: white;
     }
 
@@ -53,11 +54,12 @@
       padding: 20px;
       margin-bottom: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Légère ombre */
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      scroll-margin-top: 100px; /* Décalage quand on clique sur un bouton */
     }
 
     h2 {
-      color: #C40C2B; /* Titre en rouge foncé */
+      color: #C40C2B;
     }
 
     footer {
@@ -68,30 +70,39 @@
     }
 
     #map {
-      height: 400px; /* Hauteur fixe pour la carte */
+      height: 400px;
       width: 100%;
       border-radius: 10px;
       margin-top: 20px;
+    }
+
+    /* Mobile adaptatif : réduit le scroll-margin pour petits écrans */
+    @media (max-width: 600px) {
+      section {
+        scroll-margin-top: 120px;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- 🧱 Barre du haut fixe -->
   <header>
-    <h1>La section professionnelle CIEL</h1> <!-- Titre principal -->
-    <p>Cybersécurité informatique et réseaux électroniques</p> <!-- Sous-titre -->
+    <h1>La section professionnelle CIEL</h1>
+    <p>Cybersécurité informatique et réseaux électroniques</p>
 
+    <!-- 🔘 Boutons de navigation interne -->
     <nav>
-      <!-- Boutons avec appel JavaScript pour un scroll fluide avec décalage -->
-      <button onclick="scrollToSection('ciel')">Qu'est-ce que CIEL ?</button>
-      <button onclick="scrollToSection('competences')">Compétences</button>
-      <button onclick="scrollToSection('debouches')">Débouchés</button>
-      <button onclick="scrollToSection('pourquoi')">Pourquoi CIEL ?</button>
-      <button onclick="scrollToSection('carte')">Carte</button>
+      <button onclick="document.getElementById('ciel').scrollIntoView({ behavior: 'smooth' })">Qu'est-ce que CIEL ?</button>
+      <button onclick="document.getElementById('competences').scrollIntoView({ behavior: 'smooth' })">Compétences</button>
+      <button onclick="document.getElementById('debouches').scrollIntoView({ behavior: 'smooth' })">Débouchés</button>
+      <button onclick="document.getElementById('pourquoi').scrollIntoView({ behavior: 'smooth' })">Pourquoi CIEL ?</button>
+      <button onclick="document.getElementById('carte').scrollIntoView({ behavior: 'smooth' })">Carte</button>
     </nav>
   </header>
 
+  <!-- 📄 Contenu principal -->
   <main>
     <section id="ciel">
       <h2>Qu'est-ce que CIEL ?</h2>
@@ -126,44 +137,40 @@
       </p>
     </section>
 
+    <!-- 🗺️ Section carte avec map centrée sur le lycée -->
     <section id="carte">
       <h2>Localisation du lycée Yves Thépot</h2>
-      <div id="map"></div> <!-- Zone qui affichera la carte -->
+      <div id="map"></div>
     </section>
   </main>
 
+  <!-- 🔻 Pied de page -->
   <footer>
-    <p>&copy; 2025 Section CIEL Made By Noah Le Gouallec Le Guen</p> <!-- Mention légale -->
+    <p>&copy; 2025 Section CIEL Made By Noah Le Gouallec Le Guen</p>
   </footer>
 
-  <!-- Feuille de style Leaflet pour la carte -->
+  <!-- 📍 Feuille de style Leaflet pour afficher la carte -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
-  <!-- Script Leaflet -->
+  <!-- 📍 Script Leaflet (affichage de carte OpenStreetMap) -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-  <!-- Script personnalisé -->
   <script>
-    // 🔽 Fonction de scroll avec décalage (évite que le header cache le titre)
-    function scrollToSection(id) {
-      const offset = 80; // Décalage (en pixels)
-      const target = document.getElementById(id);
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
+    // 🌍 Initialise la carte centrée pile sur le lycée Yves Thépot
+    var map = L.map('map', {
+      zoomControl: true, // Boutons de zoom
+      attributionControl: false // Retire le crédit en bas à droite
+    }).setView([47.986845114544934, -4.087778894267064], 17); // Coordonnées lycée
 
-    // 🔽 Initialisation de la carte centrée sur le lycée Yves Thépot
-    var map = L.map('map').setView([47.986845114544934, -4.087778894267064], 17);
-
-    // 🔽 Fond de carte avec OpenStreetMap
+    // 🗺️ Ajoute le fond de carte
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
+      maxZoom: 19
     }).addTo(map);
 
-    // 🔽 Marqueur sur l'adresse exacte du lycée
+    // 📌 Marqueur sur l’emplacement exact du lycée
     L.marker([47.986845114544934, -4.087778894267064])
       .addTo(map)
-      .bindPopup('Lycée Yves Thépot, Quimper')
+      .bindPopup("Lycée Yves Thépot, Quimper")
       .openPopup();
   </script>
 
