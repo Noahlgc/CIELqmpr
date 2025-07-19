@@ -10,63 +10,71 @@
   <style>
     body {
       font-family: Arial, sans-serif; /* Police générale */
-      margin: 0; /* Supprime les marges du navigateur */
-      padding: 0; /* Supprime le padding par défaut */
-      scroll-behavior: smooth; /* Permet le scroll fluide quand on clique sur les liens */
-      scroll-padding-top: 120px; /* Laisse un espace en haut pour ne pas que le header cache le contenu */
-      background-color: #f5f5f5; /* Couleur de fond claire */
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      scroll-padding-top: 120px;
+      background-color: #f5f5f5;
     }
 
     header {
-      background-color: #c8102e; /* Rouge principal */
-      color: white; /* Texte blanc */
-      text-align: center; /* Centrer le texte */
-      padding: 20px; /* Espace intérieur */
-      position: sticky; /* Fixe le header en haut même quand on scroll */
-      top: 0; /* Collé en haut */
-      z-index: 999; /* Au-dessus des autres éléments */
+      background-color: #c8102e;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
 
     nav {
-      display: flex; /* Affiche les boutons en ligne */
-      flex-wrap: wrap; /* Passe à la ligne sur petits écrans */
-      justify-content: center; /* Centre les boutons */
-      margin-top: 15px; /* Espacement avec le texte du header */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 15px;
     }
 
     nav a {
-      background-color: white; /* Couleur de fond des boutons */
-      color: #c8102e; /* Couleur du texte rouge */
-      padding: 10px 15px; /* Taille des boutons */
-      margin: 5px; /* Espace entre les boutons */
-      border-radius: 5px; /* Coins arrondis */
-      text-decoration: none; /* Pas de soulignement */
-      font-weight: bold; /* Texte en gras */
-      transition: background-color 0.2s; /* Animation légère au hover */
+      background-color: white;
+      color: #c8102e;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.2s;
     }
 
     nav a:hover {
-      background-color: #eee; /* Couleur au survol */
+      background-color: #eee;
     }
 
     section {
-      background-color: white; /* Fond blanc des sections */
-      margin: 30px auto; /* Espace entre les sections + centré */
-      padding: 30px; /* Espace intérieur */
-      max-width: 900px; /* Largeur max */
-      border-radius: 10px; /* Coins arrondis */
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+      background-color: white;
+      margin: 30px auto;
+      padding: 30px;
+      max-width: 900px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     h2 {
-      color: #c8102e; /* Titres en rouge */
+      color: #c8102e;
+    }
+
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 20px;
     }
 
     footer {
-      background-color: #c8102e; /* Fond rouge */
-      color: white; /* Texte blanc */
-      text-align: center; /* Centré */
-      padding: 20px; /* Espace intérieur */
+      background-color: #c8102e;
+      color: white;
+      text-align: center;
+      padding: 20px;
     }
   </style>
 </head>
@@ -75,26 +83,26 @@
 
   <!-- EN-TÊTE de la page -->
   <header>
-    <h1>La section professionnelle CIEL</h1> <!-- Titre principal -->
-    <p>Cybersécurité informatique et réseaux électroniques</p> <!-- Sous-titre -->
+    <h1>La section professionnelle CIEL</h1>
+    <p>Cybersécurité informatique et réseaux électroniques</p>
 
     <!-- Menu de navigation -->
     <nav>
-      <a href="#competences">Compétences</a> <!-- 1er bouton : compétences techniques -->
-      <a href="#intro">Qu’est-ce que CIEL ?</a> <!-- 2e bouton : description générale -->
-      <a href="#debouches">Débouchés</a> <!-- 3e bouton -->
-      <a href="#pourquoi">Pourquoi CIEL ?</a> <!-- 4e bouton -->
-      <!-- Plus de bouton "Carte", il est supprimé -->
+      <a href="#competences">Compétences</a>
+      <a href="#intro">Qu’est-ce que CIEL ?</a>
+      <a href="#debouches">Débouchés</a>
+      <a href="#pourquoi">Pourquoi CIEL ?</a>
+      <a href="#carte">Carte</a>
     </nav>
   </header>
 
-  <!-- Section COMPÉTENCES (ancien contenu du bouton 1) -->
+  <!-- Section COMPÉTENCES -->
   <section id="competences">
     <h2>Compétences</h2>
     <p>Les étudiants acquièrent des compétences techniques solides : programmation, configuration de réseaux, sécurité informatique, gestion de bases de données, etc.</p>
   </section>
 
-  <!-- Section INTRO (déplacée en 2e bouton) -->
+  <!-- Section INTRO -->
   <section id="intro">
     <h2>Qu’est-ce que CIEL ?</h2>
     <p>CIEL est une formation tournée vers l’avenir dans les métiers de l’informatique, des réseaux et de la cybersécurité.</p>
@@ -110,6 +118,13 @@
   <section id="pourquoi">
     <h2>Pourquoi choisir CIEL ?</h2>
     <p>CIEL permet d’acquérir des compétences concrètes très demandées sur le marché du travail, avec un bon équilibre entre la théorie et la pratique.</p>
+  </section>
+
+  <!-- Section CARTE avec un point précis sur le lycée -->
+  <section id="carte">
+    <h2>Où se trouve le lycée ?</h2>
+    <p>Voici la localisation du lycée Yves Thépot à Quimper :</p>
+    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-4.0905%2C47.9855%2C-4.085%2C47.9885&amp;layer=mapnik&amp;marker=47.9868%2C-4.0877" allowfullscreen loading="lazy"></iframe>
   </section>
 
   <!-- Footer -->
