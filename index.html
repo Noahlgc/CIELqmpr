@@ -1,22 +1,22 @@
 <!DOCTYPE html> <!-- Déclare un document HTML5 -->
-<html lang="fr"> <!-- Définit la langue principale -->
+<html lang="fr"> <!-- Définit la langue du document -->
 
 <head>
-  <meta charset="UTF-8"> <!-- Support des accents et caractères spéciaux -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive sur mobile -->
-  <title>Section CIEL</title> <!-- Titre de l'onglet -->
+  <meta charset="UTF-8"> <!-- Support des caractères spéciaux -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adapté aux mobiles -->
+  <title>Section CIEL</title> <!-- Titre dans l’onglet -->
 
-  <!-- 🌈 Style CSS principal -->
+  <!-- 💅 CSS intégré -->
   <style>
     body {
-      font-family: Arial, sans-serif; /* Police simple */
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f0f0f0; /* Fond gris clair */
+      background-color: #f0f0f0;
     }
 
     header {
-      background-color: #C40C2B; /* Rouge foncé */
+      background-color: #C40C2B;
       color: white;
       padding: 20px;
       text-align: center;
@@ -30,7 +30,7 @@
     }
 
     nav button {
-      margin: 0 5px;
+      margin: 5px;
       padding: 10px 15px;
       background-color: white;
       color: #C40C2B;
@@ -51,15 +51,16 @@
 
     section {
       background-color: white;
-      padding: 20px;
+      padding: 60px 20px 20px 20px; /* ⬅️ padding top augmenté pour corriger le scroll */
       margin-bottom: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      scroll-margin-top: 100px; /* Décalage quand on clique sur un bouton */
+      position: relative;
     }
 
     h2 {
       color: #C40C2B;
+      margin-top: 0;
     }
 
     footer {
@@ -75,24 +76,15 @@
       border-radius: 10px;
       margin-top: 20px;
     }
-
-    /* Mobile adaptatif : réduit le scroll-margin pour petits écrans */
-    @media (max-width: 600px) {
-      section {
-        scroll-margin-top: 120px;
-      }
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- 🧱 Barre du haut fixe -->
+  <!-- 🧱 Barre du haut avec navigation -->
   <header>
     <h1>La section professionnelle CIEL</h1>
     <p>Cybersécurité informatique et réseaux électroniques</p>
-
-    <!-- 🔘 Boutons de navigation interne -->
     <nav>
       <button onclick="document.getElementById('ciel').scrollIntoView({ behavior: 'smooth' })">Qu'est-ce que CIEL ?</button>
       <button onclick="document.getElementById('competences').scrollIntoView({ behavior: 'smooth' })">Compétences</button>
@@ -102,12 +94,12 @@
     </nav>
   </header>
 
-  <!-- 📄 Contenu principal -->
+  <!-- 🧾 Sections avec padding-top intégré -->
   <main>
     <section id="ciel">
       <h2>Qu'est-ce que CIEL ?</h2>
       <p>
-        La section CIEL est une formation professionnelle centrée sur l'informatique, 
+        La section CIEL est une formation professionnelle centrée sur l'informatique,
         particulièrement dans la programmation.
       </p>
     </section>
@@ -124,7 +116,7 @@
     <section id="debouches">
       <h2>Débouchés professionnels</h2>
       <p>
-        À l’issue de la formation, les étudiants peuvent devenir développeur web, 
+        À l’issue de la formation, les étudiants peuvent devenir développeur web,
         technicien systèmes et réseaux, administrateur de base de données, etc.
       </p>
     </section>
@@ -132,42 +124,34 @@
     <section id="pourquoi">
       <h2>Pourquoi choisir CIEL ?</h2>
       <p>
-        CIEL permet d’acquérir des compétences concrètes très demandées sur le marché du travail, 
+        CIEL permet d’acquérir des compétences concrètes très demandées sur le marché du travail,
         avec un bon équilibre entre la théorie et la pratique.
       </p>
     </section>
 
-    <!-- 🗺️ Section carte avec map centrée sur le lycée -->
     <section id="carte">
       <h2>Localisation du lycée Yves Thépot</h2>
       <div id="map"></div>
     </section>
   </main>
 
-  <!-- 🔻 Pied de page -->
+  <!-- ⬇️ Pied de page -->
   <footer>
     <p>&copy; 2025 Section CIEL Made By Noah Le Gouallec Le Guen</p>
   </footer>
 
-  <!-- 📍 Feuille de style Leaflet pour afficher la carte -->
+  <!-- 🌍 Librairies Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
-  <!-- 📍 Script Leaflet (affichage de carte OpenStreetMap) -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <script>
-    // 🌍 Initialise la carte centrée pile sur le lycée Yves Thépot
-    var map = L.map('map', {
-      zoomControl: true, // Boutons de zoom
-      attributionControl: false // Retire le crédit en bas à droite
-    }).setView([47.986845114544934, -4.087778894267064], 17); // Coordonnées lycée
+    // Initialise la carte Leaflet avec zoom bien adapté
+    var map = L.map('map').setView([47.986845114544934, -4.087778894267064], 17);
 
-    // 🗺️ Ajoute le fond de carte
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19
     }).addTo(map);
 
-    // 📌 Marqueur sur l’emplacement exact du lycée
     L.marker([47.986845114544934, -4.087778894267064])
       .addTo(map)
       .bindPopup("Lycée Yves Thépot, Quimper")
