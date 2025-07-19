@@ -5,106 +5,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Section CIEL - Lycée Yves Thépot</title>
   <style>
-    /* Style général */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       background-color: #f5f5f5;
-      scroll-behavior: smooth;
     }
 
-    /* En-tête rouge */
     header {
       background-color: #c8102e;
       color: white;
-      text-align: center;
       padding: 30px 20px 10px;
-    }
-
-    /* Navigation */
-    nav {
-      background-color: #c8102e;
       text-align: center;
-      padding-bottom: 20px;
     }
 
-    /* Boutons */
-    .nav-button {
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    nav button {
       background-color: white;
       border: none;
-      border-radius: 8px;
-      padding: 10px 16px;
-      margin: 5px;
+      padding: 10px 15px;
+      border-radius: 6px;
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.3s;
     }
 
-    .nav-button:hover {
-      background-color: #e0e0e0;
+    nav button:hover {
+      background-color: #eee;
     }
 
-    /* Sections de contenu */
     section {
       background-color: white;
       margin: 20px auto;
       padding: 20px;
       border-radius: 10px;
+      width: 90%;
       max-width: 800px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 
     h2 {
       color: #c8102e;
     }
+
+    footer {
+      background-color: #c8102e;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Titre principal -->
+  <!-- En-tête principal -->
   <header>
     <h1>La section professionnelle CIEL</h1>
     <p>Cybersécurité informatique et réseaux électroniques</p>
   </header>
 
-  <!-- Boutons de navigation -->
+  <!-- Barre de navigation -->
   <nav>
-    <!-- Parfait tel quel -->
-    <button class="nav-button" onclick="scrollToSection('ciel')">Qu’est-ce que CIEL ?</button>
-    <!-- Le 2e devient Compétences -->
-    <button class="nav-button" onclick="scrollToSection('competences')">Compétences</button>
-    <!-- Le 3e devient Débouchés -->
-    <button class="nav-button" onclick="scrollToSection('debouches')">Débouchés</button>
-    <!-- Le 4e devient Pourquoi CIEL ? -->
-    <button class="nav-button" onclick="scrollToSection('pourquoi')">Pourquoi CIEL ?</button>
-    <!-- SUPPRIMÉ : Bouton Carte -->
+    <!-- Le 1er bouton reste tel quel -->
+    <button onclick="scrollToSection('presentation')">Compétences</button>
+    <!-- Les autres sont décalés de 1 -->
+    <button onclick="scrollToSection('competences')">Qu’est-ce que CIEL ?</button>
+    <button onclick="scrollToSection('debouches')">Débouchés</button>
+    <button onclick="scrollToSection('pourquoi')">Pourquoi CIEL ?</button>
   </nav>
 
-  <!-- Section Qu’est-ce que CIEL ? -->
-  <section id="ciel">
-    <h2>Qu’est-ce que CIEL ?</h2>
-    <p>CIEL est une formation tournée vers l’avenir dans les métiers de l’informatique, des réseaux et de la cybersécurité.</p>
-  </section>
-
-  <!-- Section Compétences -->
-  <section id="competences">
+  <!-- Section 1 : Compétences (qui est en réalité "Qu’est-ce que CIEL ?" mais décalée dans le bouton) -->
+  <section id="presentation">
     <h2>Compétences</h2>
     <p>Les étudiants acquièrent des compétences techniques solides : programmation, configuration de réseaux, sécurité informatique, gestion de bases de données, etc.</p>
   </section>
 
-  <!-- Section Débouchés -->
+  <!-- Section 2 : Qu’est-ce que CIEL ? (avec bouton nommé "Compétences") -->
+  <section id="competences">
+    <h2>Qu’est-ce que CIEL ?</h2>
+    <p>CIEL est une formation tournée vers l’avenir dans les métiers de l’informatique, des réseaux et de la cybersécurité.</p>
+  </section>
+
+  <!-- Section 3 : Débouchés professionnels -->
   <section id="debouches">
     <h2>Débouchés professionnels</h2>
     <p>À l’issue de la formation, les étudiants peuvent devenir développeur web, technicien systèmes et réseaux, administrateur de base de données, etc.</p>
   </section>
 
-  <!-- Section Pourquoi CIEL -->
+  <!-- Section 4 : Pourquoi choisir CIEL ? -->
   <section id="pourquoi">
     <h2>Pourquoi choisir CIEL ?</h2>
     <p>CIEL permet d’acquérir des compétences concrètes très demandées sur le marché du travail, avec un bon équilibre entre la théorie et la pratique.</p>
   </section>
 
-  <!-- Section Carte -->
+  <!-- Section 5 : Carte (pas de bouton, juste affichée dans la page) -->
   <section id="carte">
     <h2>Où se trouve le lycée ?</h2>
     <p>Voici la localisation du lycée Yves Thépot à Quimper :</p>
@@ -116,12 +116,17 @@
     </iframe>
   </section>
 
-  <!-- Script pour scroll fluide -->
+  <!-- Pied de page (footer) -->
+  <footer>
+    <p>&copy; 2025 Section CIEL - Made by Noah Le Gouallec Le Guen</p>
+  </footer>
+
+  <!-- Script de scroll fluide -->
   <script>
     function scrollToSection(id) {
       const element = document.getElementById(id);
       if (element) {
-        const offsetTop = element.offsetTop - 40; // évite de cacher le haut sous le header
+        const offsetTop = element.offsetTop - 40;
         window.scrollTo({
           top: offsetTop,
           behavior: "smooth"
@@ -129,5 +134,6 @@
       }
     }
   </script>
+
 </body>
 </html>
